@@ -1,13 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Profile from "../components/Profile";
 
 const User = () => {
-  const params = useParams();
-  console.log(params);
+  const { username } = useParams();
+
   return (
-    <div>
-      <h1>User ...</h1>
-    </div>
+    <>
+      <Profile username={username} />
+    </>
   );
 };
 
