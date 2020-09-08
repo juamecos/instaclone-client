@@ -36,6 +36,9 @@ function App() {
     [auth]
   );
 
+  // flash fo form 0.5s
+  if (auth === undefined) return null;
+
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
