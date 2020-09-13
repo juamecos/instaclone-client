@@ -8,13 +8,15 @@ import UserNotFound from "../../UserNotFound";
 import ModalBasic from "../../Modal/ModalBasic";
 import AvatarForm from "../AvatarForm";
 import "./Profile.scss";
+import HeaderProfile from "./HeaderProfile/HeaderProfile";
+import SettingsForm from "../SettingsForm";
 
 const Profile = ({ username }) => {
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState("");
   const [childrenModal, setChildrenModal] = useState(null);
   const { auth } = userAuth();
-  const { data, loading, error } = useQuery(GET_USER, {
+  const { data, loading, error, refetch } = useQuery(GET_USER, {
     variables: { username },
   });
   if (loading) return null;
@@ -30,6 +32,21 @@ const Profile = ({ username }) => {
         setTitleModal("Cambiar foto de perfil");
         setChildrenModal(
           <AvatarForm setShowModal={setShowModal} auth={auth} />
+        );
+        setShowModal(true);
+        break;
+      case "settings":
+        setTitleModal("");
+        setChildrenModal(
+          <SettingsForm
+            setShowModal={setShowModal}
+            setTitleModal={setTitleModal}
+            setChildrenModal={setChildrenModal}
+            email={email}
+            description={description}
+            siteWeb={siteWeb}
+            refetch={refetch}
+          />
         );
         setShowModal(true);
         break;
@@ -50,7 +67,11 @@ const Profile = ({ username }) => {
           />
         </Grid.Column>
         <Grid.Column width={11} className="profile__right">
-          <div>HeaderProfile</div>
+          <HeaderProfile
+            username={username}
+            auth={auth}
+            handlerModal={handlerModal}
+          />
           <div>Followers</div>
           <div className="other">
             <p className="name">{name}</p>

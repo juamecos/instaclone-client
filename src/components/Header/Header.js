@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/png/instaclone.png";
 
 import "./Header.scss";
-import RightHeader from "./RightHeader/RightHeader";
+import RightHeader from "./RightHeader";
+import Search from "./Search";
 
 const Header = () => {
   return (
@@ -17,7 +18,7 @@ const Header = () => {
             </Link>
           </Grid.Column>
           <Grid.Column width={10} className="header-search">
-            <p>Buscador</p>
+            <Search />
           </Grid.Column>
           <Grid.Column width={3} className="header-options">
             <RightHeader />

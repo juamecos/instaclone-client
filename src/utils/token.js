@@ -11,3 +11,7 @@ export const getToken = () => {
 export const decodeToken = token => {
   return jwtDecode(token);
 };
+
+export const removeToken = () => {
+  localStorage.removeItem(TOKEN);
+};

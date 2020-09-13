@@ -1,0 +1,16 @@
+@import "../../../scss/index.scss";
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .ui.button {
+    background-color: $background-light;
+    border-bottom: 1px solid $border-grey;
+    width: 100%;
+    padding: 18px 0;
+    margin: 0;
+    border-radius: 0;
+  }
+}

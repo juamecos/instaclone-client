@@ -52,24 +52,26 @@ const AvatarForm = ({ setShowModal, auth }) => {
     },
   });
 
-  const onDrop = useCallback(async acceptedFile => {
-    const file = acceptedFile[0];
-    try {
-      setLoading(true);
-      const result = await updateAvatar({ variables: { file } });
-      const { data } = result;
-      if (!data.updateAvatar.status) {
-        toast.warning("Error al actualizar el avatar");
-        setLoading(false);
-      } else {
-        setLoading(false);
-        setShowModal(false);
+  const onDrop = useCallback(
+    async acceptedFile => {
+      const file = acceptedFile[0];
+      try {
+        setLoading(true);
+        const result = await updateAvatar({ variables: { file } });
+        const { data } = result;
+        if (!data.updateAvatar.status) {
+          toast.warning("Error al actualizar el avatar");
+          setLoading(false);
+        } else {
+          setLoading(false);
+          setShowModal(false);
+        }
+      } catch (error) {
+        console.log(error);
       }
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+    },
+    [updateAvatar, setShowModal]
+  );
 
   const onDeleteAvatar = async () => {
     try {
