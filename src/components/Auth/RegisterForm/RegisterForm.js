@@ -36,12 +36,7 @@ const RegisterForm = props => {
       try {
         const newUser = formData;
         delete newUser.repeatPassword;
-        // TODO production remove (check if it can work as it is or needs to be as not commented)
-        // const results = await register({
-        //   variables: {
-        //     input: newUser,
-        //   },
-        // });
+
         await register({
           variables: {
             input: newUser,

@@ -4,12 +4,13 @@ import { useQuery } from "@apollo/client";
 import { GET_USER } from "../../../gql/user";
 import userAuth from "../../../hooks/useAuth";
 import ImageNoFound from "../../../assets/png/avatar.png";
-import UserNotFound from "../../UserNotFound";
 import ModalBasic from "../../Modal/ModalBasic";
 import AvatarForm from "../AvatarForm";
-import "./Profile.scss";
 import HeaderProfile from "./HeaderProfile/HeaderProfile";
 import SettingsForm from "../SettingsForm";
+import Followers from "./Followers/Followers";
+import UserNotFound from "../../UserNotFound";
+import "./Profile.scss";
 
 const Profile = ({ username }) => {
   const [showModal, setShowModal] = useState(false);
@@ -72,7 +73,7 @@ const Profile = ({ username }) => {
             auth={auth}
             handlerModal={handlerModal}
           />
-          <div>Followers</div>
+          <Followers username={username} />
           <div className="other">
             <p className="name">{name}</p>
             {siteWeb && (

@@ -13,7 +13,7 @@ const Search = () => {
   const { data, loading } = useQuery(SEARCH, {
     variables: { search },
   });
-  console.log(results);
+
   useEffect(() => {
     if (size(data?.search) > 0) {
       const users = [];
