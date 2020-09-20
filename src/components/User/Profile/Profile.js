@@ -12,7 +12,7 @@ import Followers from "./Followers/Followers";
 import UserNotFound from "../../UserNotFound";
 import "./Profile.scss";
 
-const Profile = ({ username }) => {
+const Profile = ({ username, totalPublications }) => {
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState("");
   const [childrenModal, setChildrenModal] = useState(null);
@@ -73,7 +73,10 @@ const Profile = ({ username }) => {
             auth={auth}
             handlerModal={handlerModal}
           />
-          <Followers username={username} />
+          <Followers
+            username={username}
+            totalPublications={totalPublications}
+          />
           <div className="other">
             <p className="name">{name}</p>
             {siteWeb && (

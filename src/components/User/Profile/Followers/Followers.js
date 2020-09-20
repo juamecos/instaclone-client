@@ -8,7 +8,7 @@ import ListUsers from "../../ListUsers/ListUsers";
 import { size } from "lodash";
 
 const Followers = props => {
-  const { username } = props;
+  const { username, totalPublications } = props;
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState("");
   const [childrenModal, setChildrenModal] = useState(null);
@@ -69,7 +69,7 @@ const Followers = props => {
     <>
       <div className="followers">
         <p>
-          <span>**</span> publicaciones
+          <span>{totalPublications}</span> publicaciones
         </p>
         <p className="link" onClick={openFollowers}>
           <span>{size(getFollowers)}</span> seguidores
