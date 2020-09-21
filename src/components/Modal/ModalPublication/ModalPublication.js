@@ -1,7 +1,8 @@
 import React from "react";
 import { Modal, Grid } from "semantic-ui-react";
-import CommentForm from "./CommentForm/CommentForm";
+import CommentForm from "./CommentForm";
 import Comments from "./Comments";
+import Actions from "./Actions";
 import "./ModalPublication.scss";
 
 const ModalPublication = ({ show, setShow, publication }) => {
@@ -17,7 +18,7 @@ const ModalPublication = ({ show, setShow, publication }) => {
         />
         <Grid.Column className="modal-publication__right" width={6}>
           <Comments publication={publication} />
-          <div>Acciones</div>
+          <Actions publication={publication} />
           <CommentForm publication={publication} />
         </Grid.Column>
       </Grid>
