@@ -80,7 +80,6 @@ const Actions = ({ publication: { id } }) => {
   if (isLikeLoading || countLoading) return null;
   const { isLike } = isLikeData;
   const { countLikes } = countData;
-  console.log(countLikes);
 
   return (
     <div className="actions">
